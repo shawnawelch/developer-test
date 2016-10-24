@@ -99,6 +99,8 @@
     <Compile Include="Controllers\Property\Builders\PropertiesViewModelBuilderTest.cs" />
     <Compile Include="Controllers\Property\Commands\CreatePropertyCommandHandlerTest.cs" />
     <Compile Include="Controllers\Property\Commands\ListPropertyCommandHandlerTest.cs" />
+    <Compile Include="Controllers\Property\Commands\MakeOfferCommandHandlerTest.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
