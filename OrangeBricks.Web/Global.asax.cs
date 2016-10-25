@@ -34,11 +34,11 @@ namespace OrangeBricks.Web
             // Auth
             container.Register<IUserStore<ApplicationUser>>(() => new UserStore<ApplicationUser>(new ApplicationDbContext()));
             container.Register<IAuthenticationManager>(() => HttpContext.Current.GetOwinContext().Authentication);
-            
+                        
             // MVC
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             container.RegisterMvcIntegratedFilterProvider();
-
+            
             DependencyResolver.SetResolver(
                 new SimpleInjectorDependencyResolver(container));
         }

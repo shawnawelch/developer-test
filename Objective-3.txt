@@ -1,0 +1,29 @@
+The code seems to be well formatted with a good separation of concerns.
+
+There are some good practices implemented, Inversion of control (IOC) for instance in using SimpleContainer the code has been made more testable and allows for further extensibility.
+SOLID principles are being followed to some extent, the builder and command structure allows for single responsibility for each of the classes used to deliver and take data from the views.
+Interfaces could be used with the handlers and builders to allow more extensibility in the future.
+
+Tests were missing for the offers; I have implemented these following the same structure currently used with the property tests. More tests can be added for the properties area as well.
+
+If I was going to refactor the code and the project was larger I would physically separate the code into at least three layers using separated projects for each, these layers would consist of:
+
+- Data layer dealing with all basic database interactions possible implementing a generic repository pattern.
+- Business layer handling all business processes i.e. Creating a property, accepting an offer etc.
+- UI layer which would consist of the MVC website front end to the software.
+
+The business layer could be further separated by implementing an Api layer using WebApi or WCF to allow for multiple UI layers or other software interactions e.g.
+
+- Website
+- App
+- Desktop/WPF/Winforms 
+- Reporting/Dashboarding
+
+Another possible change would be to implement a ModelBase class and Interface to implement standard fields on all models e.g.
+
+- CreatedAt
+- ModifiedAt
+- Deleted
+
+Using the ModelBase or Interface the data layer can make sure all items stored to the database get populated with the fields above without having to do
+this on all command handlers or every time the database is updated.
