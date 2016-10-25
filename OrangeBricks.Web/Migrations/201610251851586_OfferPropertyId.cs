@@ -12,7 +12,7 @@ namespace OrangeBricks.Web.Migrations
             RenameColumn(table: "dbo.Offers", name: "Property_Id", newName: "PropertyId");
             AlterColumn("dbo.Offers", "PropertyId", c => c.Int(nullable: false));
             CreateIndex("dbo.Offers", "PropertyId");
-            AddForeignKey("dbo.Offers", "PropertyId", "dbo.Properties", "Id", cascadeDelete: false);
+            AddForeignKey("dbo.Offers", "PropertyId", "dbo.Properties", "Id", cascadeDelete: true);
         }
         
         public override void Down()
