@@ -5,13 +5,14 @@ using OrangeBricks.Web.Models;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 {
     [TestFixture]
-    public class MakeOfferCommandHandlerTest
+    public class RequestViewingCommandHandlerTest
     {
-        private MakeOfferCommandHandler _handler;
+        private RequestViewingCommandHandler _handler;
         private IOrangeBricksContext _context;
                 
         [SetUp]
@@ -30,14 +31,14 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 
             _context.Properties.Returns(mockPropertySet);
                                             
-            _handler = new MakeOfferCommandHandler(_context);
+            _handler = new RequestViewingCommandHandler(_context);
         }
         
         [Test]
-        public void HandlerShouldAddOffer()
+        public void HandlerShouldAddViewing()
         {
             // Arrange           
-            var command = new MakeOfferCommand
+            var command = new RequestViewingCommand
             {
                 PropertyId = 1                
             };
@@ -47,17 +48,17 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 
             // Assert
             var property = _context.Properties.First();
-            Assert.IsNotEmpty(property.Offers);            
+            Assert.IsNotEmpty(property.Viewings);            
         }
 
         [Test]
-        public void HandlerShouldAddOfferWithCorrectOfferValue()
+        public void HandlerShouldAddViewingWithCorrectViewingAtValue()
         {
             // Arrange
-            var command = new MakeOfferCommand
+            var command = new RequestViewingCommand
             {
                 PropertyId = 1,
-                Offer = 250000
+                ViewingAt = new DateTime(2017, 1, 1, 9, 0, 0)
             };
 
             // Act
@@ -65,17 +66,17 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 
             // Assert
             var property = _context.Properties.First();            
-            Assert.IsNotEmpty(property.Offers);
+            Assert.IsNotEmpty(property.Viewings);
 
-            var offer = property.Offers.First();
-            Assert.AreEqual(250000, offer.Amount);                            
+            var viewing = property.Viewings.First();
+            Assert.AreEqual(new DateTime(2017, 1, 1, 9, 0, 0), viewing.ViewingAt);                            
         }
 
         [Test]
-        public void HandlerShouldAddOfferWithCorrectBuyerUserId()
+        public void HandlerShouldAddViewingWithCorrectBuyerUserId()
         {
             // Arrange
-            var command = new MakeOfferCommand
+            var command = new RequestViewingCommand
             {
                 PropertyId = 1,
                 BuyerUserId = "123"
@@ -86,11 +87,10 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 
             // Assert
             var property = _context.Properties.First();            
-            Assert.IsNotEmpty(property.Offers);
+            Assert.IsNotEmpty(property.Viewings);
 
-            var offer = property.Offers.First();
-            Assert.AreEqual("123", offer.BuyerUserId);                            
+            var viewing = property.Viewings.First();
+            Assert.AreEqual("123", viewing.BuyerUserId);                            
         }
-
     }
 }

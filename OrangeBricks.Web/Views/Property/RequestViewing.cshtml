@@ -1,0 +1,43 @@
+﻿@model OrangeBricks.Web.Controllers.Property.ViewModels.RequestViewingViewModel
+
+@{
+    ViewBag.Title = "Request Viewing";    
+}
+
+@section styles {
+    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+}
+
+<h2>Request Viewing</h2>
+
+<p>When would you like to request a viewing for the @Model.PropertyType on @Model.StreetName?</p>
+
+@using (Html.BeginForm("RequestViewing", "Property", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ViewingAt, "Viewing date and time", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.Hidden("PropertyId", Model.PropertyId)            
+            @Html.TextBoxFor(m => m.ViewingAt, new { @class = "form-control" })                                            
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Make Offer" />
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.min.js"></script>    
+    <script>
+        $(document).ready(function () {
+            $('#ViewingAt').datetimepicker({
+                format: 'DD/MM/YYYY, HH:mm'
+            });
+        });
+    </script>
+}

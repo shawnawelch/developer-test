@@ -96,11 +96,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Offer\Builders\MyOffersViewModelBuilderTest.cs" />
+    <Compile Include="Controllers\Offers\Builders\MyOffersViewModelBuilderTest.cs" />
     <Compile Include="Controllers\Property\Builders\PropertiesViewModelBuilderTest.cs" />
     <Compile Include="Controllers\Property\Commands\CreatePropertyCommandHandlerTest.cs" />
     <Compile Include="Controllers\Property\Commands\ListPropertyCommandHandlerTest.cs" />
+    <Compile Include="Controllers\Property\Commands\RequestViewingCommandHandlerTest.cs" />
     <Compile Include="Controllers\Property\Commands\MakeOfferCommandHandlerTest.cs" />
+    <Compile Include="Controllers\Viewings\Builders\MyViewingsViewModelBuilderTest.cs" />
+    <Compile Include="Controllers\Viewings\Builders\ViewingsOnPropertyViewModelBuilderTest.cs" />
+    <Compile Include="Controllers\Viewings\Commands\AcceptViewingCommandHandlerTest.cs" />
+    <Compile Include="Controllers\Viewings\Commands\RejectViewingCommandHandlerTest.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +121,7 @@
       <Name>OrangeBricks.Web</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

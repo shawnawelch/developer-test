@@ -1,15 +1,16 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
-using OrangeBricks.Web.Controllers.Offers.Builders;
+using OrangeBricks.Web.Controllers.Viewings.Builders;
 using OrangeBricks.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace OrangeBricks.Web.Tests.Controllers.Offer.Builders
+namespace OrangeBricks.Web.Tests.Controllers.Viewings.Builders
 {
     [TestFixture]
-    public class MyOffersViewModelBuilderTest
+    public class MyViewingsViewModelBuilderTest
     {
         private IOrangeBricksContext _context;
 
@@ -18,36 +19,36 @@ namespace OrangeBricks.Web.Tests.Controllers.Offer.Builders
         {
             _context = Substitute.For<IOrangeBricksContext>();
 
-            var offers = new List<Models.Offer> {
-                new Models.Offer {
-                    Id = 1, PropertyId = 1, Amount = 100000, BuyerUserId = "123", Status = OfferStatus.Accepted,
+            var viewings = new List<Models.Viewing> {
+                new Models.Viewing {
+                    Id = 1, PropertyId = 1, ViewingAt = new DateTime(2017,1,1,9,0,0), BuyerUserId = "123", Status = ViewingStatus.Accepted,
                     Property = new Models.Property { Id = 1, Description = "Small house", StreetName = "1 Somewhere", NumberOfBedrooms = 1, IsListedForSale = true, PropertyType = "House" }
                 },
-                new Models.Offer {
-                    Id = 2, PropertyId = 1,  Amount = 200000, BuyerUserId = "124", Status = OfferStatus.Pending,
+                new Models.Viewing {
+                    Id = 2, PropertyId = 1, ViewingAt = new DateTime(2017,1,1,10,0,0), BuyerUserId = "124", Status = ViewingStatus.Pending,
                     Property = new Models.Property { Id = 1, Description = "Small house", StreetName = "1 Somewhere", NumberOfBedrooms = 1, IsListedForSale = true, PropertyType = "House" }
                 },
-                new Models.Offer {
-                    Id = 3, PropertyId = 2, Amount = 300000, BuyerUserId = "123", Status = OfferStatus.Accepted,
+                new Models.Viewing {
+                    Id = 3, PropertyId = 2, ViewingAt = new DateTime(2017,1,1,11,0,0), BuyerUserId = "123", Status = ViewingStatus.Accepted,
                     Property = new Models.Property { Id = 2, Description = "Large house", StreetName = "2 Somewhere", NumberOfBedrooms = 8, IsListedForSale = true, PropertyType = "House" }
                 },
-                new Models.Offer {
-                    Id = 4, PropertyId = 2, Amount = 400000, BuyerUserId = "125", Status = OfferStatus.Pending,
+                new Models.Viewing {
+                    Id = 4, PropertyId = 2, ViewingAt = new DateTime(2017,1,1,12,0,0), BuyerUserId = "125", Status = ViewingStatus.Pending,
                     Property = new Models.Property { Id = 2, Description = "Large house", StreetName = "2 Somewhere", NumberOfBedrooms = 8, IsListedForSale = true, PropertyType = "House" }
                 }
             };
 
-            var mockOfferSet = Substitute.For<IDbSet<Models.Offer>>()
-                .Initialize(offers.AsQueryable());
+            var mockViewingSet = Substitute.For<IDbSet<Models.Viewing>>()
+                .Initialize(viewings.AsQueryable());
 
-            _context.Offers.Returns(mockOfferSet);
+            _context.Viewings.Returns(mockViewingSet);
         }
 
         [Test]
-        public void BuildShouldReturnSingleOfferForAUser()
+        public void BuildShouldReturnSingleViewingForABuyer()
         {
             // Arrange
-            var builder = new MyOffersViewModelBuilder(_context);
+            var builder = new MyViewingsViewModelBuilder(_context);
 
             // Act
             var viewModel = builder.Build("124");
@@ -57,10 +58,10 @@ namespace OrangeBricks.Web.Tests.Controllers.Offer.Builders
         }
 
         [Test]
-        public void BuildShouldReturnMultipleOffersForAUser()
+        public void BuildShouldReturnMultipleViewingsForABuyer()
         {
             // Arrange
-            var builder = new MyOffersViewModelBuilder(_context);
+            var builder = new MyViewingsViewModelBuilder(_context);
 
             // Act
             var viewModel = builder.Build("123");
@@ -70,10 +71,10 @@ namespace OrangeBricks.Web.Tests.Controllers.Offer.Builders
         }
 
         [Test]
-        public void BuildShouldReturnNoOffersForAUser()
+        public void BuildShouldReturnNoViewingsForABuyer()
         {
             // Arrange
-            var builder = new MyOffersViewModelBuilder(_context);
+            var builder = new MyViewingsViewModelBuilder(_context);
 
             // Act
             var viewModel = builder.Build("999");

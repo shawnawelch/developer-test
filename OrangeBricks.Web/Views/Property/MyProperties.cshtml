@@ -16,6 +16,7 @@
     <p>@property.NumberOfBedrooms bedroom @property.PropertyType</p>
     <p>@property.Description</p>
 
+    <a href="@Url.Action("OnProperty", "Viewings", new {id = property.Id})">View requests for viewing that have been made on this property...</a>
     <a href="@Url.Action("OnProperty", "Offers", new {id = property.Id})">View offers that have been made on this property...</a>
         
     if (!property.IsListedForSale)

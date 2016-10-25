@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - Orange Bricks</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,11 +31,13 @@
                             <li>@Html.ActionLink("My Properties", "MyProperties", "Property")</li>
                         }
                         if (User.IsInRole("Buyer"))
-                        {                            
+                        {
+                            <li>@Html.ActionLink("My Viewings", "MyViewings", "Viewings")</li>
                             <li>@Html.ActionLink("My Offers", "MyOffers", "Offers")</li>
                         }
                     }
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

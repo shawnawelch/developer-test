@@ -182,6 +182,7 @@
     <Compile Include="Controllers\Offers\OffersController.cs" />
     <Compile Include="Controllers\Offers\ViewModels\MyOfferViewModel.cs" />
     <Compile Include="Controllers\Offers\ViewModels\OffersOnPropertyViewModel.cs" />
+    <Compile Include="Controllers\Property\Builders\RequestViewingViewModelBuilder.cs" />
     <Compile Include="Controllers\Property\Builders\MakeOfferViewModelBuilder.cs" />
     <Compile Include="Controllers\Property\Builders\MyPropertiesViewModelBuilder.cs" />
     <Compile Include="Controllers\Property\Builders\PropertiesQuery.cs" />
@@ -190,14 +191,26 @@
     <Compile Include="Controllers\Property\Commands\CreatePropertyCommandHandler.cs" />
     <Compile Include="Controllers\Property\Commands\ListPropertyCommand.cs" />
     <Compile Include="Controllers\Property\Commands\ListPropertyCommandHandler.cs" />
+    <Compile Include="Controllers\Property\Commands\RequestViewingCommand.cs" />
     <Compile Include="Controllers\Property\Commands\MakeOfferCommand.cs" />
+    <Compile Include="Controllers\Property\Commands\RequestViewingCommandHandler.cs" />
     <Compile Include="Controllers\Property\Commands\MakeOfferCommandHandler.cs" />
     <Compile Include="Controllers\Property\PropertyController.cs" />
     <Compile Include="Controllers\Property\ViewModels\CreatePropertyViewModel.cs" />
+    <Compile Include="Controllers\Property\ViewModels\RequestViewingViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\MakeOfferViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\MyPropertiesViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\PropertiesViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\PropertyViewModel.cs" />
+    <Compile Include="Controllers\Viewings\Builders\MyPropertyViewingsViewModelBuilder.cs" />
+    <Compile Include="Controllers\Viewings\Builders\ViewingsOnPropertyViewModelBuilder.cs" />
+    <Compile Include="Controllers\Viewings\Commands\AcceptViewingCommand.cs" />
+    <Compile Include="Controllers\Viewings\Commands\AcceptViewingCommandHandler.cs" />
+    <Compile Include="Controllers\Viewings\Commands\RejectViewingCommand.cs" />
+    <Compile Include="Controllers\Viewings\Commands\RejectViewingCommandHandler.cs" />
+    <Compile Include="Controllers\Viewings\ViewingsController.cs" />
+    <Compile Include="Controllers\Viewings\ViewModels\MyViewingViewModel.cs" />
+    <Compile Include="Controllers\Viewings\ViewModels\ViewingsOnPropertyViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,14 +270,25 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -274,6 +298,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -310,14 +339,14 @@
     <Content Include="Views\Offers\OnProperty.cshtml" />
     <None Include="Views\Account\UnAuthorized.cshtml" />
     <Content Include="Views\Offers\MyOffers.cshtml" />
+    <Content Include="Views\Viewings\MyViewings.cshtml" />
+    <Content Include="Views\Viewings\OnProperty.cshtml" />
+    <Content Include="Views\Property\RequestViewing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
