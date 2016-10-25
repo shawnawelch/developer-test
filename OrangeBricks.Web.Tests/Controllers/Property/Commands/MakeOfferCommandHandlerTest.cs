@@ -31,11 +31,7 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
                 .Initialize(properties.AsQueryable());
 
             _context.Properties.Returns(mockPropertySet);
-                                
-            // Setup offer mocks
-            var mockOfferSet = Substitute.For<IDbSet<Models.Offer>>();
-            _context.Offers.Returns(mockOfferSet);
-
+                                            
             _handler = new MakeOfferCommandHandler(_context);
         }
         

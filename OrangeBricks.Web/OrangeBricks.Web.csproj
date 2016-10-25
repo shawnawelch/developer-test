@@ -173,12 +173,14 @@
     <Compile Include="Attributes\OrangeBricksAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Offers\Builders\MyPropertyOfferViewModelBuilder.cs" />
     <Compile Include="Controllers\Offers\Builders\OffersOnPropertyViewModelBuilder.cs" />
     <Compile Include="Controllers\Offers\Commands\AcceptOfferCommand.cs" />
     <Compile Include="Controllers\Offers\Commands\AcceptOfferCommandHandler.cs" />
     <Compile Include="Controllers\Offers\Commands\RejectOfferCommand.cs" />
     <Compile Include="Controllers\Offers\Commands\RejectOfferCommandHandler.cs" />
     <Compile Include="Controllers\Offers\OffersController.cs" />
+    <Compile Include="Controllers\Offers\ViewModels\MyOfferViewModel.cs" />
     <Compile Include="Controllers\Offers\ViewModels\OffersOnPropertyViewModel.cs" />
     <Compile Include="Controllers\Property\Builders\MakeOfferViewModelBuilder.cs" />
     <Compile Include="Controllers\Property\Builders\MyPropertiesViewModelBuilder.cs" />
@@ -231,6 +233,10 @@
     <Compile Include="Migrations\201610242014431_AddBuyerUserIdToOffer.cs" />
     <Compile Include="Migrations\201610242014431_AddBuyerUserIdToOffer.Designer.cs">
       <DependentUpon>201610242014431_AddBuyerUserIdToOffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610251851586_OfferPropertyId.cs" />
+    <Compile Include="Migrations\201610251851586_OfferPropertyId.Designer.cs">
+      <DependentUpon>201610251851586_OfferPropertyId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,6 +302,7 @@
     <Content Include="Views\Property\MakeOffer.cshtml" />
     <Content Include="Views\Offers\OnProperty.cshtml" />
     <None Include="Views\Account\UnAuthorized.cshtml" />
+    <Content Include="Views\Offers\MyOffers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610242014431_AddBuyerUserIdToOffer.resx">
       <DependentUpon>201610242014431_AddBuyerUserIdToOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610251851586_OfferPropertyId.resx">
+      <DependentUpon>201610251851586_OfferPropertyId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
