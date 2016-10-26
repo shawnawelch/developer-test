@@ -6,16 +6,16 @@ Interfaces could be used with the handlers and builders to allow more extensibil
 
 Tests were missing for the offers; I have implemented these following the same structure currently used with the property tests. More tests can be added for the properties area as well.
 
-If I was going to refactor the code and the project was larger I would physically separate the code into at least three layers using separated projects for each, these layers would consist of:
+If I was going to refactor the code and the project was larger I would physically separate the code into at least three layers using separate projects for each, these layers would consist of:
 
 - Data layer dealing with all basic database interactions possible implementing a generic repository pattern.
 - Business layer handling all business processes i.e. Creating a property, accepting an offer etc.
 - UI layer which would consist of the MVC website front end to the software.
 
-The business layer could be further separated by implementing an Api layer using WebApi or WCF to allow for multiple UI layers or other software interactions e.g.
+The business layer could be further separated by implementing an Api/service layer using WebApi or WCF to allow for multiple UI layers or other software interactions e.g.
 
 - Website
-- App
+- Mobile App
 - Desktop/WPF/Winforms 
 - Reporting/Dashboarding
 
